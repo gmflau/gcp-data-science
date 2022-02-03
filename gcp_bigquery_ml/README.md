@@ -20,8 +20,8 @@ cat movie_titles.csv | awk -F \
 "@" '{printf "hset movie_title:%s movie_title \"%s\" genre \"%s\"\n",$1,$2,$3;}' \
 | redis-cli -p 6379
 ```
-Inside Redis as Hash:  
-Key: movie_titles:{movie_id}
+Inside Redis as Hash:   
+Key: movie_titles:{movie_id}  
 Fields: movie_title, genre
 
 Load ratings:  
@@ -31,9 +31,9 @@ cat ratings.csv | awk -F "," \
 | redis-cli -p 6379
 ```
 
-Inside Redis as Hash:
-Key: movie_rating:{user_id}:{movie_id}
-Fields: rating, timestamp
+Inside Redis as Hash:  
+Key: movie_rating:{user_id}:{movie_id}  
+Fields: rating, timestamp  
     
 Load movie ids:
 ```
