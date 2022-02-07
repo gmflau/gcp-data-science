@@ -1,3 +1,4 @@
+import sys
 from google.cloud import pubsub_v1
 import json
 import redis
@@ -6,7 +7,7 @@ import redis
 # Initialization
 project_id = "central-beach-194106"
 publisher = pubsub_v1.PublisherClient()
-redis = redis.StrictRedis(host='127.0.0.1', port='6379', password=None, decode_responses=True)
+redis = redis.StrictRedis(host=sys.argv[1], port=sys.argv[2], password=sys.argv[3], decode_responses=True)
 
 
 # Publish movie ratings data to GCP PubSub
